@@ -41,7 +41,7 @@
         "main": "main.js",
         "icon": "systemm.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/HomerJay2021/iobroker.systemm/main/admin/template.png",
+        "extIcon": "https://raw.githubusercontent.com/HomerJay2021/iobroker.systemm/main/admin/systemm.png",
         "readme": "https://github.com/HomerJay2021/iobroker.systemm/blob/main/README.md",
         "loglevel": "info",
         "mode": "daemon",
