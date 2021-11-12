@@ -16,30 +16,15 @@
                 "zh-cn": "首次出版"
             }
         },
-        "title": "Template (JavaScript)",
+        "title": "Dimplex system M",
         "titleLang": {
-            "en": "Template (JavaScript)",
-            "de": "Vorlage (JavaScript)",
-            "ru": "Шаблон (JavaScript)",
-            "pt": "Modelo (JavaScript)",
-            "nl": "Sjabloon (JavaScript)",
-            "fr": "Modèle (JavaScript)",
-            "it": "Modello (JavaScript)",
-            "es": "Plantilla (JavaScript)",
-            "pl": "Szablon (JavaScript)",
-            "zh-cn": "模板 (JavaScript)"
+            "en": "Dimplex system M"",
+            "de": "Dimplex system M",
         },
         "desc": {
-            "en": "Template for adapter development",
-            "de": "Vorlage für die Adapterentwicklung",
-            "ru": "Шаблон для разработки адаптера",
-            "pt": "Modelo para desenvolvimento de adaptador",
-            "nl": "Sjabloon voor adapterontwikkeling",
-            "fr": "Modèle pour le développement d'adaptateurs",
-            "it": "Modello per lo sviluppo dell'adattatore",
-            "es": "Plantilla para el desarrollo de adaptadores",
-            "pl": "Szablon do opracowania adaptera",
-            "zh-cn": "适配器开发模板"
+            "en": "Read values from Dimplex system M over Ethernet",
+            "de": "Adapter zum auslesen einer Dimplex System M Wärmepumpe über Ethernet",
+      
         },
         "authors": [
             "Martin Böhrer <martin.boehrer@gmx.de>"
@@ -67,16 +52,8 @@
         "adminTab": {
             "singleton": true,
             "name": {
-                "en": "Template (JavaScript)",
-                "de": "Vorlage (JavaScript)",
-                "ru": "Шаблон (JavaScript)",
-                "pt": "Modelo (JavaScript)",
-                "nl": "Sjabloon (JavaScript)",
-                "fr": "Modèle (JavaScript)",
-                "it": "Modello (JavaScript)",
-                "es": "Plantilla (JavaScript)",
-                "pl": "Szablon (JavaScript)",
-                "zh-cn": "模板 (JavaScript)"
+                "en": "Dimplex system M",
+                "de": "Dimplex system M",
             },
             "link": "",
             "fa-icon": "info"
@@ -89,8 +66,8 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "hostName": "http://master-unit"
+        
     },
     "objects": [],
     "instanceObjects": []
