@@ -87,22 +87,7 @@ class Systemm extends utils.Adapter {
         RequestValues();
         
         
-        {
-            "common": {
-            "instanceObjects": [{
-                "_id": "info.connection",
-                "type": "state",
-                "common": {
-                    "role": "indicator.connected",
-                    "name": "If communication with system m works",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false,
-                    "def": false
-                },
-                "native": {}
-            }]
-        }
+      
         on({requestConnection, change: 'any'}, obj => {
 
             if(connection) {
