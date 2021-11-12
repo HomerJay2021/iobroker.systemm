@@ -27,7 +27,7 @@ class Systemm extends utils.Adapter {
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
-let connection=false;
+var connection=true;
     /**
      * Is called when databases are connected and adapter received configuration.
      */
@@ -64,6 +64,29 @@ let connection=false;
         // this.subscribeStates('*');
 
         //Connection state
+        
+        function doRequest(url) {
+          return new Promise(function (resolve, reject) {
+            request(url, function (error, res, body) {
+              if (!error && res.statusCode == 200) {
+                resolve(body);
+              } else {
+                reject(error);
+                connection =false;  
+              }
+            });
+          });
+        }
+
+        // Usage:
+
+        async function RequestValues() {
+          let res = await doRequest(this.config.hostName + "/api/v2/functiondata/groups?groups=DATEN_DISPLAY_BETREIBER");
+          console.log(res);
+        }
+        RequestValues
+        
+        
         {
             "common": {
             "instanceObjects": [{
