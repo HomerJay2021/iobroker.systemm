@@ -27,7 +27,7 @@ class Systemm extends utils.Adapter {
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
-var connection=true;
+var requestConnection=true;
     /**
      * Is called when databases are connected and adapter received configuration.
      */
@@ -72,7 +72,7 @@ var connection=true;
                 resolve(body);
               } else {
                 reject(error);
-                connection =false;  
+                requestConnection =false;  
               }
             });
           });
@@ -103,7 +103,7 @@ var connection=true;
                 "native": {}
             }]
         }
-        on({connection, change: 'any'}, obj => {
+        on({requestConnection, change: 'any'}, obj => {
 
             if(connection) {
                 adapter.setState("info.connection", true, true);
