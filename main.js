@@ -27,7 +27,7 @@ class Systemm extends utils.Adapter {
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
-
+let connection=false;
     /**
      * Is called when databases are connected and adapter received configuration.
      */
@@ -63,6 +63,34 @@ class Systemm extends utils.Adapter {
         // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
         // this.subscribeStates('*');
 
+        //Connection state
+        {
+            "common": {
+            "instanceObjects": [{
+                "_id": "info.connection",
+                "type": "state",
+                "common": {
+                    "role": "indicator.connected",
+                    "name": "If communication with system m works",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false,
+                    "def": false
+                },
+                "native": {}
+            }]
+        }
+        on({connection, change: 'any'}, obj => {
+
+            if(connection) {
+                adapter.setState("info.connection", true, true);
+                adapter.log.debug("Adapterfarbe: grün");
+            } else {
+                adapter.setState("info.connection", false, true);
+                adapter.log.debug("Adapterfarbe: gelb");
+            }
+        });
+        
         /*
             setState examples
             you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
