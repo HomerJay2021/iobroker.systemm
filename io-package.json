@@ -39,7 +39,7 @@
         "license": "MIT",
         "platform": "Javascript/Node.js",
         "main": "main.js",
-        "icon": "template.png",
+        "icon": "systemm.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/HomerJay2021/iobroker.systemm/main/admin/template.png",
         "readme": "https://github.com/HomerJay2021/iobroker.systemm/blob/main/README.md",
