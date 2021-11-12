@@ -7,6 +7,8 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const util = require('util')
+const request = require("request");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -39,40 +41,7 @@ class Systemm extends utils.Adapter {
         this.log.info('config Hostname: ' + this.config.hostName);
         
         
-             //Connection state
-        var requestConnection=true;
-        function doRequest(url) {
-          return new Promise(function (resolve, reject) {
-            request(url, function (error, res, body) {
-              if (!error && res.statusCode == 200) {
-                resolve(body);
-              } else {
-                reject(error);
-                requestConnection =false;  
-              }
-            });
-          });
-        }
-
-        // Usage:
-
-        async function RequestValues() {
-          let res = await doRequest(this.config.hostName + "/api/v2/functiondata/groups?groups=DATEN_DISPLAY_BETREIBER");
-          console.log(res);
-        }
-        RequestValues();
-        
-        requestConnection.addEventListener("change", ChangeConnectionState);
-      
-        function ChangeConnectionState(){
-             if(requestConnection) {
-                adapter.setState("info.connection", true, true);
-                adapter.log.debug("Adapterfarbe: grün");
-            } else {
-                adapter.setState("info.connection", false, true);
-                adapter.log.debug("Adapterfarbe: gelb");
-            } 
-        }
+         
 
         /*
         For every state in the system there has to be also an object of type state
@@ -123,6 +92,44 @@ class Systemm extends utils.Adapter {
         result = await this.checkGroupAsync('admin', 'admin');
         this.log.info('check group user admin group admin: ' + result);
     }
+    
+        //Connection state
+        
+    
+    
+    
+      
+
+        // Usage:
+
+        async  RequestValues(url) {
+         // let res = await doRequest(this.config.hostName + "/api/v2/functiondata/groups?groups=DATEN_DISPLAY_BETREIBER");
+          //console.log(res);
+            try 
+          {
+            const response = await fetch(url);
+            const json = await response.json();
+            return {message:json.message,status:json.type};
+          }
+          catch(error)
+          {
+            console.log(error);
+          }
+        }
+        data = RequestValues(this.config.hostName + "/api/v2/functiondata/groups?groups=DATEN_DISPLAY_BETREIBER");
+        
+        //requestConnection.addEventListener("change", ChangeConnectionState);
+      
+        function ChangeConnectionState(){
+             if(requestConnection) {
+                adapter.setState("info.connection", true, true);
+                adapter.log.debug("Adapterfarbe: grün");
+            } else {
+                adapter.setState("info.connection", false, true);
+                adapter.log.debug("Adapterfarbe: gelb");
+            } 
+        }
+    
 
     /**
      * Is called when adapter shuts down - callback has to be called under any circumstances!
