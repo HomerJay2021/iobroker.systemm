@@ -31,10 +31,7 @@
         ],
         "keywords": [
             "Dimplex",
-            "System M",
-            "ioBroker",
-            "Smart Home",
-            "home automation"
+            "System M"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
