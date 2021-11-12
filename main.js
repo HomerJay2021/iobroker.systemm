@@ -86,18 +86,19 @@ class Systemm extends utils.Adapter {
         }
         RequestValues();
         
-        
+        requestConnection.addEventListener("change", ChangeConnectionState);
       
-        on({requestConnection, change: 'any'}, obj => {
-
-            if(connection) {
+        function ChangeConnectionState(){
+             if(requestConnection) {
                 adapter.setState("info.connection", true, true);
                 adapter.log.debug("Adapterfarbe: grün");
             } else {
                 adapter.setState("info.connection", false, true);
                 adapter.log.debug("Adapterfarbe: gelb");
-            }
-        });
+            } 
+        }
+
+      
         
         /*
             setState examples
