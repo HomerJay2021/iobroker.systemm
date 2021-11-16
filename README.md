@@ -1,5 +1,5 @@
-![Logo](admin/template.png)
-# ioBroker.template
+![Logo](admin/systemm.png)
+# ioBroker.systemm
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.template.svg)](https://www.npmjs.com/package/iobroker.template)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.template.svg)](https://www.npmjs.com/package/iobroker.template)
