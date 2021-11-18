@@ -45,7 +45,7 @@ class Systemm extends utils.Adapter {
         systemm = new systemmApi(this);
 		try{
 
-			await systemm.start();
+			await systemm.Start();
 			
 
 		} catch(error){
