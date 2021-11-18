@@ -45,7 +45,7 @@ class Systemm extends utils.Adapter {
         systemm = new systemmApi(this);
 		try{
 
-			await systemm.Start();
+			await systemm.Start(this.config.hostName);
 			
 
 		} catch(error){
